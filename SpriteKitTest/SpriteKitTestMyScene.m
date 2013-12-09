@@ -283,7 +283,7 @@ static const uint8_t shipCategory = 0x1 << 2;
 
 -(void)rewardBonusBomb
 {
-   // refactor needed
+   // TODO refactor needed
     if (_score > 100 && _score < 200)
     {
         _bombs++;
@@ -471,7 +471,7 @@ static const uint8_t shipCategory = 0x1 << 2;
         [self UpdateScore];
     }
     
-        
+    //TODO contact with spaceship
     
     
     
