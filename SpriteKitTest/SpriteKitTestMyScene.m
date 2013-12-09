@@ -20,9 +20,9 @@ typedef enum {
     kEndReasonLose
 } EndReason;
 
-static const uint8_t bulletCategory = 0x1 << 0;
-static const uint8_t enemyCategory = 0x1 << 1;
-static const uint8_t shipCategory = 0x1 << 2;
+static const uint8_t shipCategory = 0x1 << 0;
+static const uint8_t laserCategory = 0x1 << 1;
+static const uint8_t enemyCategory = 0x1 << 2;
 
 @implementation SpriteKitTestMyScene
 
@@ -397,7 +397,7 @@ static const uint8_t shipCategory = 0x1 << 2;
         asteroid.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:asteroid.size];
         asteroid.physicsBody.dynamic = YES;
         asteroid.physicsBody.categoryBitMask = enemyCategory;
-        asteroid.physicsBody.contactTestBitMask = bulletCategory;
+        asteroid.physicsBody.contactTestBitMask = laserCategory;
         asteroid.physicsBody.collisionBitMask = 0;
         
         asteroid.position = CGPointMake(self.frame.size.width+asteroid.size.width/2, randY);
@@ -421,14 +421,17 @@ static const uint8_t shipCategory = 0x1 << 2;
     
     shipLaser.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:shipLaser.size];
     shipLaser.physicsBody.dynamic = NO;
-    shipLaser.physicsBody.categoryBitMask = bulletCategory;
+    shipLaser.physicsBody.categoryBitMask = laserCategory;
     shipLaser.physicsBody.contactTestBitMask = enemyCategory;
     shipLaser.physicsBody.collisionBitMask = 0;
 
     shipLaser.position = CGPointMake(_ship.position.x+shipLaser.size.width/2,_ship.position.y+0);
     
     shipLaser.zPosition = 1;
-    shipLaser.scale = 0.8;
+    
+    shipLaser.xScale = 0.8;
+    shipLaser.yScale = 0.8;
+    
     
     CGPoint location = CGPointMake(self.frame.size.width, _ship.position.y);
 
@@ -460,10 +463,10 @@ static const uint8_t shipCategory = 0x1 << 2;
         secondBody = contact.bodyA;
     }
     
-    if ((firstBody.categoryBitMask & bulletCategory) != 0)
+    if ((firstBody.categoryBitMask & laserCategory) != 0)
     {
-        SKNode *projectile = (contact.bodyA.categoryBitMask & bulletCategory) ? contact.bodyA.node : contact.bodyB.node;
-        SKNode *enemy = (contact.bodyA.categoryBitMask & bulletCategory) ? contact.bodyB.node : contact.bodyA.node;
+        SKNode *projectile = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyA.node : contact.bodyB.node;
+        SKNode *enemy = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyB.node : contact.bodyA.node;
        
         [projectile runAction:[SKAction removeFromParent]];
         [enemy runAction:[SKAction removeFromParent]];
