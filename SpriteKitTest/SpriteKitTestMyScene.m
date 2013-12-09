@@ -11,8 +11,6 @@
 #import "SpriteKitTestMyScene.h"
 #import "FMMParallaxNode.h"
 
-#define kNumAsteroids 15
-#define kNumLasers 5
 #define kScoreHudName @"scoreHud"
 #define kLivesHudName @"healthHud"
 #define kBombHudName @"bombHud"
@@ -323,7 +321,7 @@ static const uint8_t shipCategory = 0x1 << 2;
     CGFloat offsetX = _ship.frame.size.width * _ship.anchorPoint.x;
     CGFloat offsetY = _ship.frame.size.height * _ship.anchorPoint.y;
   
-    //todo refactor this to a max 12 point vector
+    //TODO refactor this to a max 12 point vector
     CGMutablePathRef path = CGPathCreateMutable();
     
     CGPathMoveToPoint(path, NULL, 50 - offsetX, 14 - offsetY);
