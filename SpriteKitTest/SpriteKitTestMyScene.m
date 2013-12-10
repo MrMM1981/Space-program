@@ -81,8 +81,6 @@ static const uint8_t enemyCategory = 0x1 << 2;
                                                      pointsPerSecondSpeed:25.0];
         _parallaxSpaceDust.position = CGPointMake(0, 0);
         [self addChild:_parallaxSpaceDust];
-        
-		//test from windows pc
 		
 #pragma mark - Setup Sprite for the ship
         //Create space sprite, setup position on left edge centered on the screen, and add to Scene
