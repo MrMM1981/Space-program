@@ -175,9 +175,9 @@ static const uint8_t enemyCategory = 0x1 << 2;
 - (void)updateShipPositionFromMotionManager
 {
     CMAccelerometerData* data = _motionManager.accelerometerData;
-    if (fabs(data.acceleration.x) > 0.2)
+    if (fabs(data.acceleration.x) > 0.3)
     {
-        [_ship.physicsBody applyForce:CGVectorMake(0.0, 40.0 * data.acceleration.x)];
+        [_ship.physicsBody applyForce:CGVectorMake(0.0, 45.0 * data.acceleration.x)];
     }
 }
 
@@ -292,7 +292,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void) LoadSpaceShip
 {
-    _ship = [SKSpriteNode spriteNodeWithImageNamed:@"SpaceFlier_sm_1.png"];
+    _ship = [SKSpriteNode spriteNodeWithImageNamed:@"SpaceFlier_med_1.png"];
     _ship.position = CGPointMake(self.frame.size.width * 0.1, CGRectGetMidY(self.frame));
     
     CGFloat offsetX = _ship.frame.size.width * _ship.anchorPoint.x;
@@ -300,28 +300,17 @@ static const uint8_t enemyCategory = 0x1 << 2;
   
     //TODO refactor this to a max 12 point vector
     CGMutablePathRef path = CGPathCreateMutable();
-    
-    CGPathMoveToPoint(path, NULL, 50 - offsetX, 14 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 50 - offsetX, 17 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 49 - offsetX, 20 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 45 - offsetX, 23 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 42 - offsetX, 25 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 38 - offsetX, 25 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 34 - offsetX, 25 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 30 - offsetX, 24 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 28 - offsetX, 22 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 26 - offsetX, 20 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 25 - offsetX, 18 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 23 - offsetX, 16 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 22 - offsetX, 13 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 23 - offsetX, 9 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 25 - offsetX, 7 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 29 - offsetX, 7 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 32 - offsetX, 5 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 35 - offsetX, 4 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 40 - offsetX, 5 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 43 - offsetX, 5 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 48 - offsetX, 8 - offsetY);
+    CGPathMoveToPoint(path, NULL, 32 - offsetX, 9 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 14 - offsetX, 16 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 9 - offsetX, 17 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 6 - offsetX, 17 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 4 - offsetX, 15 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 1 - offsetX, 14 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 4 - offsetX, 1 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 14 - offsetX, 3 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 23 - offsetX, -1 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 32 - offsetX, -1 - offsetY);
+
     
     CGPathCloseSubpath(path);
     
@@ -408,7 +397,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
     shipLaser.physicsBody.contactTestBitMask = enemyCategory;
     shipLaser.physicsBody.collisionBitMask = 0;
 
-    shipLaser.position = CGPointMake(_ship.position.x+shipLaser.size.width/2,_ship.position.y+0);
+    shipLaser.position = CGPointMake(_ship.position.x+shipLaser.size.width/2,_ship.position.y-7.3);
     
     shipLaser.zPosition = 1;
     
