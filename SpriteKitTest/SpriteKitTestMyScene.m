@@ -547,13 +547,20 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void)setupHud
 {
-    SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
-    scoreLabel.name = kScoreHudName;
-    scoreLabel.fontSize = 15;
-    scoreLabel.fontColor = [SKColor greenColor];
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %04u", 0];
-    scoreLabel.position = CGPointMake(20 + scoreLabel.frame.size.width/2, self.size.height - (20 + scoreLabel.frame.size.height/2));
-    [self addChild:scoreLabel];
+//    SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
+//    scoreLabel.name = kScoreHudName;
+//    scoreLabel.fontSize = 15;
+//    scoreLabel.fontColor = [SKColor greenColor];
+//    scoreLabel.text = [NSString stringWithFormat:@"Score: %04u", 0];
+//    scoreLabel.position = CGPointMake(20 + scoreLabel.frame.size.width/2, self.size.height - (20 + scoreLabel.frame.size.height/2));
+	
+	[self addChild:[self CreateLabelWithName: kScoreHudName 
+									WithText:[NSString stringWithFormat:@"Score: %04u", 0] 
+								   WithColor:[SKColor greenColor] 
+									WithSize:15 
+								  AtPosition:CGPointMake(20 + scoreLabel.frame.size.width/2, self.size.height - (20 + scoreLabel.frame.size.height/2))]];
+				   
+    //[self addChild:scoreLabel];
     
 //    SKLabelNode* bombLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
 //    bombLabel.name = kBombHudName;
@@ -570,6 +577,18 @@ static const uint8_t enemyCategory = 0x1 << 2;
     livesLabel.text = [NSString stringWithFormat:@"Lives: %d", _lives];
     livesLabel.position = CGPointMake(self.size.width - livesLabel.frame.size.width/2 - 20, self.size.height - (20 + livesLabel.frame.size.height/2));
     [self addChild:livesLabel];
+}
+
+-(SKLabelNode *)CreateLabelWithName:(NSString *)name WithText:(NSString *)text WithColor:(SKColor *)color WithSize:(int *)size AtPosition:(CGPoint *)position 
+{
+	SKLabelNode* labelNode = [SKLbaleNode lablenodeWithFontNamed:@"Future-CondensedMedium"];
+	labelNode.name = name;
+	labelNode.fontSize = size;
+    labelNode.fontColor = color;
+    labelNode.text = text;
+    labelNode.position = position;
+	
+	return labelNode
 }
 
 -(void)UpdateHud
