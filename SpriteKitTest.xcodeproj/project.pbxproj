@@ -49,6 +49,8 @@
 		FC9AF06118340AFD00FFA26A /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF04818340AFD00FFA26A /* shake.caf */; };
 		FC9AF06218340AFD00FFA26A /* SpaceGame.caf in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF04918340AFD00FFA26A /* SpaceGame.caf */; };
 		FC9AF06318340AFD00FFA26A /* SpaceShooter.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF04A18340AFD00FFA26A /* SpaceShooter.atlas */; };
+		FCCCABE31858FB370013C76F /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCCCABE11858FB370013C76F /* Explosion.sks */; };
+		FCCCABE41858FB370013C76F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = FCCCABE21858FB370013C76F /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		FC9AF04818340AFD00FFA26A /* shake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake.caf; sourceTree = "<group>"; };
 		FC9AF04918340AFD00FFA26A /* SpaceGame.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceGame.caf; sourceTree = "<group>"; };
 		FC9AF04A18340AFD00FFA26A /* SpaceShooter.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShooter.atlas; sourceTree = "<group>"; };
+		FCCCABE11858FB370013C76F /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Explosion.sks; path = ../../Explosion.sks; sourceTree = "<group>"; };
+		FCCCABE21858FB370013C76F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../../spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +271,8 @@
 		FC9AF03B18340AFD00FFA26A /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				FCCCABE11858FB370013C76F /* Explosion.sks */,
+				FCCCABE21858FB370013C76F /* spark.png */,
 				FC9AF03C18340AFD00FFA26A /* star1.png */,
 				FC9AF03D18340AFD00FFA26A /* star2.png */,
 				FC9AF03E18340AFD00FFA26A /* star3.png */,
@@ -386,12 +392,14 @@
 				FC9AF05B18340AFD00FFA26A /* stars3.sks in Resources */,
 				FC9AF05818340AFD00FFA26A /* star3.png in Resources */,
 				FC9AF06018340AFD00FFA26A /* powerup.caf in Resources */,
+				FCCCABE31858FB370013C76F /* Explosion.sks in Resources */,
 				FC9AF00D18340A4F00FFA26A /* Spaceship.png in Resources */,
 				FC9AF06118340AFD00FFA26A /* shake.caf in Resources */,
 				FC9AF04E18340AFD00FFA26A /* bg_spacialanomaly.png in Resources */,
 				FC9AF05218340AFD00FFA26A /* icon-medium.png in Resources */,
 				FC9AF00518340A4F00FFA26A /* Main.storyboard in Resources */,
 				FC9AF05518340AFD00FFA26A /* icon-small@2x.png in Resources */,
+				FCCCABE41858FB370013C76F /* spark.png in Resources */,
 				FC9AF05918340AFD00FFA26A /* stars1.sks in Resources */,
 				FC9AF04F18340AFD00FFA26A /* bg_spacialanomaly2.png in Resources */,
 				FC9AF05118340AFD00FFA26A /* icon-large@2x.png in Resources */,

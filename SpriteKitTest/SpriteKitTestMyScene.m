@@ -31,20 +31,11 @@ static const uint8_t enemyCategory = 0x1 << 2;
     FMMParallaxNode *_parallaxNodeBackgrounds;
     FMMParallaxNode *_parallaxSpaceDust;
     CMMotionManager *_motionManager;
-//    
-//    NSMutableArray *_asteroids;
-//    int _nextAsteroid;
     double _nextAsteroidSpawn;
-//    
-//    NSMutableArray *_shipLasers;
-//    int _nextShipLaser;
-//    
     AVAudioPlayer *_backgroundAudioPlayer;
-    
     int _lives;
     int _score;
     int _bombs;
-    
     double _gameOverTime;
     bool _gameOver;
 }
@@ -57,7 +48,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
         /* Setup your scene here */
         NSLog(@"SKScene:initWithSize %f x %f",size.width,size.height);
         self.backgroundColor = [SKColor blackColor];
-        //Define your physics body around the screen - used by your ship to not bounce off the screen
+       
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         self.physicsWorld.gravity = CGVectorMake(0, 0);
 		self.physicsWorld.contactDelegate = self;
@@ -83,17 +74,15 @@ static const uint8_t enemyCategory = 0x1 << 2;
         [self addChild:_parallaxSpaceDust];
 		
 #pragma mark - Setup Sprite for the ship
-        //Create space sprite, setup position on left edge centered on the screen, and add to Scene
         [self LoadSpaceShip];
 
 #pragma mark - Setup the Accelerometer to move the ship
         _motionManager = [[CMMotionManager alloc] init];
-  
 
 #pragma mark - Setup the stars to appear as particles
-        [self addChild:[self loadEmitterNode:@"stars1"]];
-        [self addChild:[self loadEmitterNode:@"stars2"]];
-        [self addChild:[self loadEmitterNode:@"stars3"]];
+        [self addChild:[self loadStarEmitterNode:@"stars1"]];
+        [self addChild:[self loadStarEmitterNode:@"stars2"]];
+        [self addChild:[self loadStarEmitterNode:@"stars3"]];
 
 #pragma mark - make the Hud
         [self setupHud];
@@ -118,17 +107,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
     
     [self UpdateHud];
     
-//    for (SKSpriteNode *asteroid in _asteroids)
-//    {
-//        asteroid.hidden = YES;
-//    }
-//    
-//    for (SKSpriteNode *laser in _shipLasers)
-//    {
-//        laser.hidden = YES;
-//    }
     _ship.hidden = NO;
-    //reset ship position for new game
     _ship.position = CGPointMake(self.frame.size.width * 0.1, CGRectGetMidY(self.frame));
     
     //setup to handle accelerometer readings using CoreMotion Framework
@@ -226,28 +205,26 @@ static const uint8_t enemyCategory = 0x1 << 2;
     }
     
     SKLabelNode *label;
-    label = [[SKLabelNode alloc] initWithFontNamed:@"Futura-CondensedMedium"];
-    label.name = @"winLoseLabel";
-    label.text = message;
-    label.scale = 0.1;
-    label.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.6);
-    label.fontColor = [SKColor yellowColor];
-    [self addChild:label];
-    
-    SKLabelNode *restartLabel;
-    restartLabel = [[SKLabelNode alloc] initWithFontNamed:@"Futura-CondensedMedium"];
-    restartLabel.name = @"restartLabel";
-    restartLabel.text = @"Play Again?";
-    restartLabel.scale = 0.5;
-    restartLabel.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.4);
-    restartLabel.fontColor = [SKColor yellowColor];
-    [self addChild:restartLabel];
-    
     SKAction *labelScaleAction = [SKAction scaleTo:1.0 duration:0.5];
     
-    [restartLabel runAction:labelScaleAction];
+    label = [self CreateLabelWithName:@"winLoseLabel"
+                             WithText:message
+                            WithColor:[SKColor yellowColor]
+                             WithSize:15];
+    label.scale = 0.1;
+    label.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.6);
     [label runAction:labelScaleAction];
+    [self addChild:label];
     
+    label = [self CreateLabelWithName:@"restartLabel"
+                             WithText:@"Play Again?"
+                            WithColor:[SKColor yellowColor]
+                             WithSize:15];
+
+    label.scale = 0.5;
+    label.position = CGPointMake(self.frame.size.width/2, self.frame.size.height * 0.4);
+    [label runAction:labelScaleAction];
+    [self addChild:label];
 }
 
 #pragma mark Update gamescene
@@ -352,7 +329,6 @@ static const uint8_t enemyCategory = 0x1 << 2;
     [_ship setYScale:0.5];
     
     _ship.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
-    // _ship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_ship.frame.size];
     _ship.physicsBody.dynamic = YES;
     _ship.physicsBody.affectedByGravity = NO;
     _ship.physicsBody.mass = 1.0;
@@ -365,12 +341,21 @@ static const uint8_t enemyCategory = 0x1 << 2;
     
 }
 
-- (SKEmitterNode *)loadEmitterNode:(NSString *)emitterFileName
+- (SKEmitterNode *)loadExplosion:(NSString *)emitterFileName atPosition:(CGPoint)position
+{
+    NSString *emitterPath = [[NSBundle mainBundle] pathForResource:emitterFileName ofType:@"sks"];
+    SKEmitterNode *emitterNode = [NSKeyedUnarchiver unarchiveObjectWithFile:emitterPath];
+  
+    emitterNode.position = position;
+    
+    return emitterNode;
+}
+
+- (SKEmitterNode *)loadStarEmitterNode:(NSString *)emitterFileName
 {
     NSString *emitterPath = [[NSBundle mainBundle] pathForResource:emitterFileName ofType:@"sks"];
     SKEmitterNode *emitterNode = [NSKeyedUnarchiver unarchiveObjectWithFile:emitterPath];
     
-    //do some view specific tweaks
     emitterNode.particlePosition = CGPointMake(self.size.width/2.0, self.size.height/2.0);
     emitterNode.particlePositionRange = CGVectorMake(self.size.width+100, self.size.height);
     
@@ -399,9 +384,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
         asteroid.physicsBody.categoryBitMask = enemyCategory;
         asteroid.physicsBody.contactTestBitMask = laserCategory;
         asteroid.physicsBody.collisionBitMask = 0;
-        
         asteroid.position = CGPointMake(self.frame.size.width+asteroid.size.width/2, randY);
-        asteroid.hidden = NO;
         
         CGPoint location = CGPointMake(-self.frame.size.width-asteroid.size.width, randY);
         
@@ -467,9 +450,12 @@ static const uint8_t enemyCategory = 0x1 << 2;
     {
         SKNode *projectile = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyA.node : contact.bodyB.node;
         SKNode *enemy = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyB.node : contact.bodyA.node;
+        [self addChild:[self loadExplosion:@"Explosion" atPosition:enemy.position]];
        
+        SKAction *asteroidExplosionSound = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
+        
         [projectile runAction:[SKAction removeFromParent]];
-        [enemy runAction:[SKAction removeFromParent]];
+        [enemy runAction:[SKAction sequence:@[asteroidExplosionSound, [SKAction removeFromParent]]]];
         
         [self UpdateScore];
     }
@@ -547,48 +533,39 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void)setupHud
 {
-//    SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
-//    scoreLabel.name = kScoreHudName;
-//    scoreLabel.fontSize = 15;
-//    scoreLabel.fontColor = [SKColor greenColor];
-//    scoreLabel.text = [NSString stringWithFormat:@"Score: %04u", 0];
-//    scoreLabel.position = CGPointMake(20 + scoreLabel.frame.size.width/2, self.size.height - (20 + scoreLabel.frame.size.height/2));
-	
-	[self addChild:[self CreateLabelWithName: kScoreHudName 
+	SKLabelNode *label = [self CreateLabelWithName: kScoreHudName
 									WithText:[NSString stringWithFormat:@"Score: %04u", 0] 
 								   WithColor:[SKColor greenColor] 
-									WithSize:15 
-								  AtPosition:CGPointMake(20 + scoreLabel.frame.size.width/2, self.size.height - (20 + scoreLabel.frame.size.height/2))]];
-				   
-    //[self addChild:scoreLabel];
+									WithSize:15];
+    label.position = CGPointMake(20 + label.frame.size.width/2, self.size.height - (20 + label.frame.size.height/2));
+    [self addChild:label];
+
+    label = [self CreateLabelWithName:kLivesHudName
+                             WithText:[NSString stringWithFormat:@"Lives: %d", _lives]
+                            WithColor:[SKColor redColor]
+                             WithSize:15];
+    label.position = CGPointMake(self.size.width - label.frame.size.width/2 - 20, self.size.height - (20 + label.frame.size.height/2));
+    [self addChild:label];
     
-//    SKLabelNode* bombLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
-//    bombLabel.name = kBombHudName;
-//    bombLabel.fontSize = 20;
-//    bombLabel.fontColor = [SKColor greenColor];
-//    bombLabel.text = [NSString stringWithFormat:@"Bombs: %d", 3];
-//    bombLabel.position = CGPointMake(scoreLabel.frame.size.width + self.size.width/3 + bombLabel.frame.size.width/2, self.size.height - (20 + bombLabel.frame.size.height/2));
-//    [self addChild:bombLabel];
+    //    SKLabelNode* bombLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
+    //    bombLabel.name = kBombHudName;
+    //    bombLabel.fontSize = 20;
+    //    bombLabel.fontColor = [SKColor greenColor];
+    //    bombLabel.text = [NSString stringWithFormat:@"Bombs: %d", 3];
+    //    bombLabel.position = CGPointMake(scoreLabel.frame.size.width + self.size.width/3 + bombLabel.frame.size.width/2, self.size.height - (20 + bombLabel.frame.size.height/2));
+    //    [self addChild:bombLabel];
     
-    SKLabelNode* livesLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
-    livesLabel.name = kLivesHudName;
-    livesLabel.fontSize = 15;
-    livesLabel.fontColor = [SKColor redColor];
-    livesLabel.text = [NSString stringWithFormat:@"Lives: %d", _lives];
-    livesLabel.position = CGPointMake(self.size.width - livesLabel.frame.size.width/2 - 20, self.size.height - (20 + livesLabel.frame.size.height/2));
-    [self addChild:livesLabel];
 }
 
--(SKLabelNode *)CreateLabelWithName:(NSString *)name WithText:(NSString *)text WithColor:(SKColor *)color WithSize:(int *)size AtPosition:(CGPoint *)position 
+-(SKLabelNode *)CreateLabelWithName:(NSString *)name WithText:(NSString *)text WithColor:(SKColor *)color WithSize:(int)size
 {
-	SKLabelNode* labelNode = [SKLbaleNode lablenodeWithFontNamed:@"Future-CondensedMedium"];
+	SKLabelNode* labelNode = [SKLabelNode labelNodeWithFontNamed:@"Future-CondensedMedium"];
 	labelNode.name = name;
 	labelNode.fontSize = size;
     labelNode.fontColor = color;
     labelNode.text = text;
-    labelNode.position = position;
-	
-	return labelNode
+    
+	return labelNode;
 }
 
 -(void)UpdateHud
@@ -600,20 +577,20 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void)UpdateLivesLabel
 {
-    SKLabelNode* lives = (SKLabelNode*)[self childNodeWithName:kLivesHudName];
-    lives.text = [NSString stringWithFormat:@"Lives: %d", _lives];
+    SKLabelNode* label = (SKLabelNode*)[self childNodeWithName:kLivesHudName];
+    label.text = [NSString stringWithFormat:@"Lives: %d", _lives];
 }
 
 -(void)UpdateBombsLabel
 {
-    SKLabelNode* bombs = (SKLabelNode*)[self childNodeWithName:kBombHudName];
-    bombs.text = [NSString stringWithFormat:@"Bombs: %d", _bombs];
+    SKLabelNode* label = (SKLabelNode*)[self childNodeWithName:kBombHudName];
+    label.text = [NSString stringWithFormat:@"Bombs: %d", _bombs];
 }
 
 -(void)UpdateScoreLabel
 {
-    SKLabelNode* score = (SKLabelNode*)[self childNodeWithName:kScoreHudName];
-    score.text = [NSString stringWithFormat:@"Score: %04u", _score];
+    SKLabelNode* label = (SKLabelNode*)[self childNodeWithName:kScoreHudName];
+    label.text = [NSString stringWithFormat:@"Score: %04u", _score];
 }
 
 #pragma mark Backgroudmusic
