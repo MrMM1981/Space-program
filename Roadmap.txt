@@ -1,0 +1,23 @@
+Mission Statement - (Richard will make the first draft)
+
+GameCenter integration
+iAd
+Minimum of 3 Levels? ==> different colors eg blackish, redish, grayish, etc)
+Different types of enemies (astroids, ships, satelites, etc)
+Enemy ships that fire back
+Damage to ship that eventually results in loss of life in stead of 1 hit = dead
+Intergrate own graphics
+Intergrate own sounds
+Rotating asteroids / ships
+Visual effects like firestorms, astroid dust rain
+Explosion when enemie/ship is destroyed
+Bullet taking out enemie bullets
+Smart-Bombs
+Power-Ups ( different types of shields, missiles, repairbot, satelite shooters, etc..)
+Different way of controlling the ship (joypad instead of tilt)?
+Start game menu with:
+	- start game
+	- top scores
+	- quick help on controles
+	- about screen
+iPad support
