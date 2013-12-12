@@ -293,6 +293,8 @@ static const uint8_t enemyCategory = 0x1 << 2;
 -(void) LoadSpaceShip
 {
     _ship = [SKSpriteNode spriteNodeWithImageNamed:@"SpaceFlier_med_1.png"];
+	[_ship setXScale:0.5];
+    [_ship setYScale:0.5];
     _ship.position = CGPointMake(self.frame.size.width * 0.1, CGRectGetMidY(self.frame));
     
     CGFloat offsetX = _ship.frame.size.width * _ship.anchorPoint.x;
@@ -310,12 +312,8 @@ static const uint8_t enemyCategory = 0x1 << 2;
     CGPathAddLineToPoint(path, NULL, 14 - offsetX, 3 - offsetY);
     CGPathAddLineToPoint(path, NULL, 23 - offsetX, -1 - offsetY);
     CGPathAddLineToPoint(path, NULL, 32 - offsetX, -1 - offsetY);
-
-    
     CGPathCloseSubpath(path);
     
-    [_ship setXScale:0.5];
-    [_ship setYScale:0.5];
     
     _ship.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     _ship.physicsBody.dynamic = YES;
@@ -353,7 +351,6 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 - (void) SpawnNewAstroid:(double)CurrentGameTime
 {
-
     if (CurrentGameTime > _nextAsteroidSpawn)
     {
         //NSLog(@"spawning new asteroid");
@@ -364,7 +361,6 @@ static const uint8_t enemyCategory = 0x1 << 2;
         float randDuration = [self randomValueBetween:2.0 andValue:10.0];
         
         SKSpriteNode *asteroid = [SKSpriteNode spriteNodeWithImageNamed:@"asteroid"];
-
         [asteroid setXScale:0.3];
         [asteroid setYScale:0.3];
 
@@ -375,12 +371,10 @@ static const uint8_t enemyCategory = 0x1 << 2;
         asteroid.physicsBody.collisionBitMask = 0;
         asteroid.position = CGPointMake(self.frame.size.width+asteroid.size.width/2, randY);
         
-        CGPoint location = CGPointMake(-self.frame.size.width-asteroid.size.width, randY);
+        CGPoint toLocation = CGPointMake(-self.frame.size.width-asteroid.size.width, randY);
         
-        SKAction *moveAction = [SKAction moveTo:location duration:randDuration];
-        SKAction *doneAction = [SKAction removeFromParent];
-        
-        SKAction *moveAsteroidActionWithDone = [SKAction sequence:@[moveAction, doneAction ]];
+        SKAction *moveAction = [SKAction moveTo:toLocation duration:randDuration];
+        SKAction *moveAsteroidActionWithDone = [SKAction sequence:@[moveAction, [SKAction removeFromParent]]];
         [asteroid runAction:moveAsteroidActionWithDone withKey:@"asteroidMoving"];
         
         [self addChild:asteroid];
@@ -409,8 +403,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
     SKAction *laserFireSoundAction = [SKAction playSoundFileNamed:@"laser_ship.caf" waitForCompletion:NO];
     SKAction *laserMoveAction = [SKAction moveTo:location duration:0.5];
-    SKAction *laserDoneAction = [SKAction removeFromParent];
-    SKAction *moveLaserActionWithDone = [SKAction sequence:@[laserFireSoundAction, laserMoveAction, laserDoneAction]];
+    SKAction *moveLaserActionWithDone = [SKAction sequence:@[laserFireSoundAction, laserMoveAction, [SKAction removeFromParent]]];
     [shipLaser runAction:moveLaserActionWithDone withKey:@"laserFired"];
 
     [self addChild:shipLaser];
