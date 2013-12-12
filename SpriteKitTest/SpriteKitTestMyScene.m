@@ -330,7 +330,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
     
 }
 
-- (SKEmitterNode *)loadExplosion:(NSString *)emitterFileName atPosition:(CGPoint)position
+- (SKEmitterNode *)loadExplosionEmitterNode:(NSString *)emitterFileName atPosition:(CGPoint)position
 {
     NSString *emitterPath = [[NSBundle mainBundle] pathForResource:emitterFileName ofType:@"sks"];
     SKEmitterNode *emitterNode = [NSKeyedUnarchiver unarchiveObjectWithFile:emitterPath];
@@ -439,7 +439,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
     {
         SKNode *projectile = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyA.node : contact.bodyB.node;
         SKNode *enemy = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyB.node : contact.bodyA.node;
-        [self addChild:[self loadExplosion:@"Explosion" atPosition:enemy.position]];
+        [self addChild:[self loadExplosionEmitterNode:@"Explosion" atPosition:enemy.position]];
        
         SKAction *asteroidExplosionSound = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
         
