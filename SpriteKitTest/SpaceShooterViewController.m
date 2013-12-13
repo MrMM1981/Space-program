@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Ewart Wigmans. All rights reserved.
 //
 
-#import "SpriteKitTestViewController.h"
+#import "SpaceShooterViewController.h"
 #import "SpriteKitTestMyScene.h"
 
-@implementation SpriteKitTestViewController
+@implementation SpaceShooterViewController
 
 - (void)viewDidLoad
 {

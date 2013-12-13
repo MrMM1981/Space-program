@@ -13,17 +13,17 @@
 		FC9AEFF618340A4E00FFA26A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFF518340A4E00FFA26A /* SpriteKit.framework */; };
 		FC9AEFFC18340A4F00FFA26A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC9AEFFA18340A4F00FFA26A /* InfoPlist.strings */; };
 		FC9AEFFE18340A4F00FFA26A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AEFFD18340A4F00FFA26A /* main.m */; };
-		FC9AF00218340A4F00FFA26A /* SpriteKitTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00118340A4F00FFA26A /* SpriteKitTestAppDelegate.m */; };
+		FC9AF00218340A4F00FFA26A /* SpaceShooterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00118340A4F00FFA26A /* SpaceShooterAppDelegate.m */; };
 		FC9AF00518340A4F00FFA26A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF00318340A4F00FFA26A /* Main.storyboard */; };
-		FC9AF00818340A4F00FFA26A /* SpriteKitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00718340A4F00FFA26A /* SpriteKitTestViewController.m */; };
-		FC9AF00B18340A4F00FFA26A /* SpriteKitTestMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00A18340A4F00FFA26A /* SpriteKitTestMyScene.m */; };
+		FC9AF00818340A4F00FFA26A /* SpaceShooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00718340A4F00FFA26A /* SpaceShooterViewController.m */; };
+		FC9AF00B18340A4F00FFA26A /* SpaceShooterMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF00A18340A4F00FFA26A /* SpaceShooterMyScene.m */; };
 		FC9AF00D18340A4F00FFA26A /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF00C18340A4F00FFA26A /* Spaceship.png */; };
 		FC9AF00F18340A4F00FFA26A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF00E18340A4F00FFA26A /* Images.xcassets */; };
 		FC9AF01618340A4F00FFA26A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AF01518340A4F00FFA26A /* XCTest.framework */; };
 		FC9AF01718340A4F00FFA26A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFEF18340A4E00FFA26A /* Foundation.framework */; };
 		FC9AF01818340A4F00FFA26A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFF318340A4E00FFA26A /* UIKit.framework */; };
 		FC9AF02018340A4F00FFA26A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF01E18340A4F00FFA26A /* InfoPlist.strings */; };
-		FC9AF02218340A4F00FFA26A /* SpriteKitTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF02118340A4F00FFA26A /* SpriteKitTestTests.m */; };
+		FC9AF02218340A4F00FFA26A /* SpaceShooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF02118340A4F00FFA26A /* SpaceShooterTests.m */; };
 		FC9AF04B18340AFD00FFA26A /* bg_front_spacedust.png in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF02D18340AFD00FFA26A /* bg_front_spacedust.png */; };
 		FC9AF04C18340AFD00FFA26A /* bg_galaxy.png in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF02E18340AFD00FFA26A /* bg_galaxy.png */; };
 		FC9AF04D18340AFD00FFA26A /* bg_planetsunrise.png in Resources */ = {isa = PBXBuildFile; fileRef = FC9AF02F18340AFD00FFA26A /* bg_planetsunrise.png */; };
@@ -65,29 +65,29 @@
 
 /* Begin PBXFileReference section */
 		FC7236FD1848CA9C007E298D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		FC9AEFEC18340A4E00FFA26A /* SpriteKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9AEFEC18340A4E00FFA26A /* SpaceShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9AEFEF18340A4E00FFA26A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FC9AEFF118340A4E00FFA26A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FC9AEFF318340A4E00FFA26A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FC9AEFF518340A4E00FFA26A /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		FC9AEFF918340A4F00FFA26A /* SpriteKitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpriteKitTest-Info.plist"; sourceTree = "<group>"; };
+		FC9AEFF918340A4F00FFA26A /* SpaceShooter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaceShooter-Info.plist"; sourceTree = "<group>"; };
 		FC9AEFFB18340A4F00FFA26A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC9AEFFD18340A4F00FFA26A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FC9AEFFF18340A4F00FFA26A /* SpriteKitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpriteKitTest-Prefix.pch"; sourceTree = "<group>"; };
-		FC9AF00018340A4F00FFA26A /* SpriteKitTestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteKitTestAppDelegate.h; sourceTree = "<group>"; };
-		FC9AF00118340A4F00FFA26A /* SpriteKitTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitTestAppDelegate.m; sourceTree = "<group>"; };
+		FC9AEFFF18340A4F00FFA26A /* SpaceShooter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaceShooter-Prefix.pch"; sourceTree = "<group>"; };
+		FC9AF00018340A4F00FFA26A /* SpaceShooterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceShooterAppDelegate.h; sourceTree = "<group>"; };
+		FC9AF00118340A4F00FFA26A /* SpaceShooterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceShooterAppDelegate.m; sourceTree = "<group>"; };
 		FC9AF00418340A4F00FFA26A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FC9AF00618340A4F00FFA26A /* SpriteKitTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteKitTestViewController.h; sourceTree = "<group>"; };
-		FC9AF00718340A4F00FFA26A /* SpriteKitTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitTestViewController.m; sourceTree = "<group>"; };
-		FC9AF00918340A4F00FFA26A /* SpriteKitTestMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteKitTestMyScene.h; sourceTree = "<group>"; };
-		FC9AF00A18340A4F00FFA26A /* SpriteKitTestMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitTestMyScene.m; sourceTree = "<group>"; };
+		FC9AF00618340A4F00FFA26A /* SpaceShooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceShooterViewController.h; sourceTree = "<group>"; };
+		FC9AF00718340A4F00FFA26A /* SpaceShooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceShooterViewController.m; sourceTree = "<group>"; };
+		FC9AF00918340A4F00FFA26A /* SpaceShooterMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaceShooterMyScene.h; sourceTree = "<group>"; };
+		FC9AF00A18340A4F00FFA26A /* SpaceShooterMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceShooterMyScene.m; sourceTree = "<group>"; };
 		FC9AF00C18340A4F00FFA26A /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		FC9AF00E18340A4F00FFA26A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FC9AF01418340A4F00FFA26A /* SpriteKitTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpriteKitTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9AF01418340A4F00FFA26A /* SpaceShooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceShooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9AF01518340A4F00FFA26A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FC9AF01D18340A4F00FFA26A /* SpriteKitTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpriteKitTestTests-Info.plist"; sourceTree = "<group>"; };
+		FC9AF01D18340A4F00FFA26A /* SpaceShooterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaceShooterTests-Info.plist"; sourceTree = "<group>"; };
 		FC9AF01F18340A4F00FFA26A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FC9AF02118340A4F00FFA26A /* SpriteKitTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitTestTests.m; sourceTree = "<group>"; };
+		FC9AF02118340A4F00FFA26A /* SpaceShooterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceShooterTests.m; sourceTree = "<group>"; };
 		FC9AF02D18340AFD00FFA26A /* bg_front_spacedust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_front_spacedust.png; sourceTree = "<group>"; };
 		FC9AF02E18340AFD00FFA26A /* bg_galaxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_galaxy.png; sourceTree = "<group>"; };
 		FC9AF02F18340AFD00FFA26A /* bg_planetsunrise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_planetsunrise.png; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		FC9AEFE318340A4E00FFA26A = {
 			isa = PBXGroup;
 			children = (
-				FC9AEFF718340A4E00FFA26A /* SpriteKitTest */,
-				FC9AF01B18340A4F00FFA26A /* SpriteKitTestTests */,
+				FC9AEFF718340A4E00FFA26A /* SpaceShooter */,
+				FC9AF01B18340A4F00FFA26A /* SpaceShooterTests */,
 				FC9AEFEE18340A4E00FFA26A /* Frameworks */,
 				FC9AEFED18340A4E00FFA26A /* Products */,
 			);
@@ -156,8 +156,8 @@
 		FC9AEFED18340A4E00FFA26A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC9AEFEC18340A4E00FFA26A /* SpriteKitTest.app */,
-				FC9AF01418340A4F00FFA26A /* SpriteKitTestTests.xctest */,
+				FC9AEFEC18340A4E00FFA26A /* SpaceShooter.app */,
+				FC9AF01418340A4F00FFA26A /* SpaceShooterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,48 +175,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FC9AEFF718340A4E00FFA26A /* SpriteKitTest */ = {
+		FC9AEFF718340A4E00FFA26A /* SpaceShooter */ = {
 			isa = PBXGroup;
 			children = (
-				FC9AF00018340A4F00FFA26A /* SpriteKitTestAppDelegate.h */,
-				FC9AF00118340A4F00FFA26A /* SpriteKitTestAppDelegate.m */,
+				FC9AF00018340A4F00FFA26A /* SpaceShooterAppDelegate.h */,
+				FC9AF00118340A4F00FFA26A /* SpaceShooterAppDelegate.m */,
 				FC9AF00318340A4F00FFA26A /* Main.storyboard */,
 				FC9AF02B18340AFD00FFA26A /* Resources */,
-				FC9AF00618340A4F00FFA26A /* SpriteKitTestViewController.h */,
-				FC9AF00718340A4F00FFA26A /* SpriteKitTestViewController.m */,
-				FC9AF00918340A4F00FFA26A /* SpriteKitTestMyScene.h */,
-				FC9AF00A18340A4F00FFA26A /* SpriteKitTestMyScene.m */,
+				FC9AF00618340A4F00FFA26A /* SpaceShooterViewController.h */,
+				FC9AF00718340A4F00FFA26A /* SpaceShooterViewController.m */,
+				FC9AF00918340A4F00FFA26A /* SpaceShooterMyScene.h */,
+				FC9AF00A18340A4F00FFA26A /* SpaceShooterMyScene.m */,
 				FC9AF00C18340A4F00FFA26A /* Spaceship.png */,
 				FC9AF00E18340A4F00FFA26A /* Images.xcassets */,
 				FC9AEFF818340A4F00FFA26A /* Supporting Files */,
 			);
+			name = SpaceShooter;
 			path = SpriteKitTest;
 			sourceTree = "<group>";
 		};
 		FC9AEFF818340A4F00FFA26A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FC9AEFF918340A4F00FFA26A /* SpriteKitTest-Info.plist */,
+				FC9AEFF918340A4F00FFA26A /* SpaceShooter-Info.plist */,
 				FC9AEFFA18340A4F00FFA26A /* InfoPlist.strings */,
 				FC9AEFFD18340A4F00FFA26A /* main.m */,
-				FC9AEFFF18340A4F00FFA26A /* SpriteKitTest-Prefix.pch */,
+				FC9AEFFF18340A4F00FFA26A /* SpaceShooter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FC9AF01B18340A4F00FFA26A /* SpriteKitTestTests */ = {
+		FC9AF01B18340A4F00FFA26A /* SpaceShooterTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC9AF02118340A4F00FFA26A /* SpriteKitTestTests.m */,
+				FC9AF02118340A4F00FFA26A /* SpaceShooterTests.m */,
 				FC9AF01C18340A4F00FFA26A /* Supporting Files */,
 			);
+			name = SpaceShooterTests;
 			path = SpriteKitTestTests;
 			sourceTree = "<group>";
 		};
 		FC9AF01C18340A4F00FFA26A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FC9AF01D18340A4F00FFA26A /* SpriteKitTestTests-Info.plist */,
+				FC9AF01D18340A4F00FFA26A /* SpaceShooterTests-Info.plist */,
 				FC9AF01E18340A4F00FFA26A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -300,9 +302,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC9AEFEB18340A4E00FFA26A /* SpriteKitTest */ = {
+		FC9AEFEB18340A4E00FFA26A /* SpaceShooter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC9AF02518340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpriteKitTest" */;
+			buildConfigurationList = FC9AF02518340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpaceShooter" */;
 			buildPhases = (
 				FC9AEFE818340A4E00FFA26A /* Sources */,
 				FC9AEFE918340A4E00FFA26A /* Frameworks */,
@@ -312,14 +314,14 @@
 			);
 			dependencies = (
 			);
-			name = SpriteKitTest;
+			name = SpaceShooter;
 			productName = SpriteKitTest;
-			productReference = FC9AEFEC18340A4E00FFA26A /* SpriteKitTest.app */;
+			productReference = FC9AEFEC18340A4E00FFA26A /* SpaceShooter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FC9AF01318340A4F00FFA26A /* SpriteKitTestTests */ = {
+		FC9AF01318340A4F00FFA26A /* SpaceShooterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC9AF02818340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpriteKitTestTests" */;
+			buildConfigurationList = FC9AF02818340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpaceShooterTests" */;
 			buildPhases = (
 				FC9AF01018340A4F00FFA26A /* Sources */,
 				FC9AF01118340A4F00FFA26A /* Frameworks */,
@@ -330,9 +332,9 @@
 			dependencies = (
 				FC9AF01A18340A4F00FFA26A /* PBXTargetDependency */,
 			);
-			name = SpriteKitTestTests;
+			name = SpaceShooterTests;
 			productName = SpriteKitTestTests;
-			productReference = FC9AF01418340A4F00FFA26A /* SpriteKitTestTests.xctest */;
+			productReference = FC9AF01418340A4F00FFA26A /* SpaceShooterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -350,7 +352,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FC9AEFE718340A4E00FFA26A /* Build configuration list for PBXProject "SpriteKitTest" */;
+			buildConfigurationList = FC9AEFE718340A4E00FFA26A /* Build configuration list for PBXProject "SpaceShooter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -363,8 +365,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC9AEFEB18340A4E00FFA26A /* SpriteKitTest */,
-				FC9AF01318340A4F00FFA26A /* SpriteKitTestTests */,
+				FC9AEFEB18340A4E00FFA26A /* SpaceShooter */,
+				FC9AF01318340A4F00FFA26A /* SpaceShooterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -422,11 +424,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9AF00B18340A4F00FFA26A /* SpriteKitTestMyScene.m in Sources */,
-				FC9AF00218340A4F00FFA26A /* SpriteKitTestAppDelegate.m in Sources */,
+				FC9AF00B18340A4F00FFA26A /* SpaceShooterMyScene.m in Sources */,
+				FC9AF00218340A4F00FFA26A /* SpaceShooterAppDelegate.m in Sources */,
 				FC9AEFFE18340A4F00FFA26A /* main.m in Sources */,
 				FC9AF05018340AFD00FFA26A /* FMMParallaxNode.m in Sources */,
-				FC9AF00818340A4F00FFA26A /* SpriteKitTestViewController.m in Sources */,
+				FC9AF00818340A4F00FFA26A /* SpaceShooterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9AF02218340A4F00FFA26A /* SpriteKitTestTests.m in Sources */,
+				FC9AF02218340A4F00FFA26A /* SpaceShooterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +445,7 @@
 /* Begin PBXTargetDependency section */
 		FC9AF01A18340A4F00FFA26A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FC9AEFEB18340A4E00FFA26A /* SpriteKitTest */;
+			target = FC9AEFEB18340A4E00FFA26A /* SpaceShooter */;
 			targetProxy = FC9AF01918340A4F00FFA26A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -554,14 +556,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpriteKitTest/SpriteKitTest-Prefix.pch";
-				INFOPLIST_FILE = "SpriteKitTest/SpriteKitTest-Info.plist";
+				GCC_PREFIX_HEADER = "SpriteKitTest/SpaceShooter-Prefix.pch";
+				INFOPLIST_FILE = "SpriteKitTest/SpaceShooter-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/EwartenMarieke/Documents/Ewart/Development/SpriteKitTest/SpriteKitTest,
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceShooter;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -573,14 +575,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpriteKitTest/SpriteKitTest-Prefix.pch";
-				INFOPLIST_FILE = "SpriteKitTest/SpriteKitTest-Info.plist";
+				GCC_PREFIX_HEADER = "SpriteKitTest/SpaceShooter-Prefix.pch";
+				INFOPLIST_FILE = "SpriteKitTest/SpaceShooter-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/EwartenMarieke/Documents/Ewart/Development/SpriteKitTest/SpriteKitTest,
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceShooter;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -602,8 +604,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SpriteKitTestTests/SpriteKitTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpriteKitTestTests/SpaceShooterTests-Info.plist";
+				PRODUCT_NAME = SpaceShooterTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -621,8 +623,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpriteKitTest/SpriteKitTest-Prefix.pch";
-				INFOPLIST_FILE = "SpriteKitTestTests/SpriteKitTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpriteKitTestTests/SpaceShooterTests-Info.plist";
+				PRODUCT_NAME = SpaceShooterTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -631,7 +633,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC9AEFE718340A4E00FFA26A /* Build configuration list for PBXProject "SpriteKitTest" */ = {
+		FC9AEFE718340A4E00FFA26A /* Build configuration list for PBXProject "SpaceShooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC9AF02318340A4F00FFA26A /* Debug */,
@@ -640,7 +642,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC9AF02518340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpriteKitTest" */ = {
+		FC9AF02518340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpaceShooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC9AF02618340A4F00FFA26A /* Debug */,
@@ -649,7 +651,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC9AF02818340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpriteKitTestTests" */ = {
+		FC9AF02818340A4F00FFA26A /* Build configuration list for PBXNativeTarget "SpaceShooterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC9AF02918340A4F00FFA26A /* Debug */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpriteKitTestAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SpaceShooterAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

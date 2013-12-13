@@ -8,7 +8,7 @@
 
 @import CoreMotion;
 @import AVFoundation;
-#import "SpriteKitTestMyScene.h"
+#import "SpaceShooterMyScene.h"
 #import "FMMParallaxNode.h"
 
 #define kScoreHudName @"scoreHud"
@@ -24,7 +24,7 @@ static const uint8_t shipCategory = 0x1 << 0;
 static const uint8_t laserCategory = 0x1 << 1;
 static const uint8_t enemyCategory = 0x1 << 2;
 
-@implementation SpriteKitTestMyScene
+@implementation SpaceShooterMyScene
 
 {
     SKSpriteNode *_ship;

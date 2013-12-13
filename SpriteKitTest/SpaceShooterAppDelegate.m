@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Ewart Wigmans. All rights reserved.
 //
 
-#import "SpriteKitTestAppDelegate.h"
+#import "SpaceShooterAppDelegate.h"
 
-@implementation SpriteKitTestAppDelegate
+@implementation SpaceShooterAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

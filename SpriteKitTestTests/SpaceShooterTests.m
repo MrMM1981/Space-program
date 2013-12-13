@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface SpriteKitTestTests : XCTestCase
+@interface SpaceShooterTests : XCTestCase
 
 @end
 
-@implementation SpriteKitTestTests
+@implementation SpaceShooterTests
 
 - (void)setUp
 {

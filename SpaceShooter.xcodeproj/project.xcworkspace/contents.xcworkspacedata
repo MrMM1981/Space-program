@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SpriteKitTest.xcodeproj">
+      location = "self:SpaceShooter.xcodeproj">
    </FileRef>
 </Workspace>

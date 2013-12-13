@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface SpriteKitTestViewController : UIViewController
+@interface SpaceShooterViewController : UIViewController
 
 @end
