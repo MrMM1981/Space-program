@@ -7,7 +7,7 @@
 //
 
 #import "SpaceShooterViewController.h"
-#import "SpriteKitTestMyScene.h"
+#import "SpaceShooterMyScene.h"
 
 @implementation SpaceShooterViewController
 
@@ -27,7 +27,7 @@
         skView.showsNodeCount = YES;
         
         // Create and configure the scene.
-        SpriteKitTestMyScene *theScene = [SpriteKitTestMyScene sceneWithSize:skView.bounds.size];
+        SpaceShooterMyScene *theScene = [SpaceShooterMyScene sceneWithSize:skView.bounds.size];
         theScene.scaleMode = SKSceneScaleModeAspectFill;
         
         // Present the scene.
