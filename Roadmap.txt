@@ -21,3 +21,4 @@ Start game menu with:
 	- quick help on controles
 	- about screen
 iPad support
+Resume from Hibernate
