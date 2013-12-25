@@ -11,6 +11,10 @@
 
 @implementation SpaceShooterViewController
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
