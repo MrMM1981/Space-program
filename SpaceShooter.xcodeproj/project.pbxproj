@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BCB3F06186AF91000C6C9F0 /* Laserbeam_Red_Orange_Fancy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB3F05186AF91000C6C9F0 /* Laserbeam_Red_Orange_Fancy.png */; };
 		FC9AEFF018340A4E00FFA26A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFEF18340A4E00FFA26A /* Foundation.framework */; };
 		FC9AEFF218340A4E00FFA26A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFF118340A4E00FFA26A /* CoreGraphics.framework */; };
 		FC9AEFF418340A4E00FFA26A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9AEFF318340A4E00FFA26A /* UIKit.framework */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9BCB3F05186AF91000C6C9F0 /* Laserbeam_Red_Orange_Fancy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Laserbeam_Red_Orange_Fancy.png; sourceTree = "<group>"; };
 		FC7236FD1848CA9C007E298D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FC9AEFEC18340A4E00FFA26A /* SpaceShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9AEFEF18340A4E00FFA26A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BCB3F04186AF91000C6C9F0 /* Lasers */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB3F05186AF91000C6C9F0 /* Laserbeam_Red_Orange_Fancy.png */,
+			);
+			path = Lasers;
+			sourceTree = "<group>";
+		};
 		FC9AEFE318340A4E00FFA26A = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 		FC9AF02B18340AFD00FFA26A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9BCB3F04186AF91000C6C9F0 /* Lasers */,
 				FC9AF02C18340AFD00FFA26A /* Backgrounds */,
 				FC9AF03218340AFD00FFA26A /* Classes */,
 				FC9AF03518340AFD00FFA26A /* Icons */,
@@ -388,6 +399,7 @@
 				FC9AF04B18340AFD00FFA26A /* bg_front_spacedust.png in Resources */,
 				FC9AF04D18340AFD00FFA26A /* bg_planetsunrise.png in Resources */,
 				FC9AF00F18340A4F00FFA26A /* Images.xcassets in Resources */,
+				9BCB3F06186AF91000C6C9F0 /* Laserbeam_Red_Orange_Fancy.png in Resources */,
 				FC9AF05E18340AFD00FFA26A /* laser_enemy.caf in Resources */,
 				FC9AF06318340AFD00FFA26A /* SpaceShooter.atlas in Resources */,
 				FC9AF05718340AFD00FFA26A /* star2.png in Resources */,

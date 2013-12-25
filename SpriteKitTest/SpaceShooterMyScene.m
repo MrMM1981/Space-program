@@ -384,7 +384,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void)FireLaser
 {
-    SKSpriteNode *shipLaser = [SKSpriteNode spriteNodeWithImageNamed:@"laserbeam_blue"];
+    SKSpriteNode *shipLaser = [SKSpriteNode spriteNodeWithImageNamed:@"Laserbeam_Red_Orange_Fancy.png"];
     
     shipLaser.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:shipLaser.size];
     shipLaser.physicsBody.dynamic = NO;
