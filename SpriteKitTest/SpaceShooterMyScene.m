@@ -244,11 +244,17 @@ static const uint8_t enemyCategory = 0x1 << 2;
     //spawn new astroid
     [self SpawnNewAstroid:curTime];
     
-//    //check for collsions
-//    if (!_gameOver)
-//    {
-//        [self CheckForCollisions:curTime];
-//    }
+    if (_lives <= 0 && !_gameOver)
+    {
+        NSLog(@"you lose...");
+        [self endTheScene:kEndReasonLose];
+    }
+    else if (currentTime >= _gameOverTime)
+    {
+        NSLog(@"you won...");
+        [self endTheScene:kEndReasonWin];
+    }
+
 }
 
 -(void)UpdateScore
@@ -416,40 +422,64 @@ static const uint8_t enemyCategory = 0x1 << 2;
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    SKPhysicsBody *firstBody;
-    SKPhysicsBody *secondBody;
-    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    if (!_gameOver)
     {
-        firstBody = contact.bodyA;
-        secondBody = contact.bodyB;
+        SKPhysicsBody *firstBody;
+        SKPhysicsBody *secondBody;
+        if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+        {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        }
+        else
+        {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+        
+        if ((firstBody.categoryBitMask & laserCategory) != 0)
+        {
+            SKNode *projectile = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyA.node : contact.bodyB.node;
+            SKNode *enemy = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyB.node : contact.bodyA.node;
+            
+            
+            
+            [self addChild:[self loadExplosionEmitterNode:@"Explosion" atPosition:enemy.position withSize:enemy.frame.size]];
+           
+            SKAction *asteroidExplosionSound = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
+            
+            [projectile runAction:[SKAction removeFromParent]];
+            [enemy runAction:[SKAction sequence:@[asteroidExplosionSound, [SKAction removeFromParent]]]];
+            
+            NSLog(@"you just destroyed an asteroid");
+            [self UpdateScore];
+        }
+        
+        //TODO contact with spaceship
+        if ((firstBody.categoryBitMask & shipCategory) != 0)
+        {
+            SKNode *ship = (contact.bodyA.categoryBitMask & shipCategory) ? contact.bodyA.node : contact.bodyB.node;
+            SKNode *enemy = (contact.bodyA.categoryBitMask & shipCategory) ? contact.bodyB.node : contact.bodyA.node;
+
+            SKAction *asteroidExplosionSound = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
+            
+            [enemy runAction:[SKAction sequence:@[asteroidExplosionSound, [SKAction removeFromParent]]]];
+            
+        
+            SKAction *blink = [SKAction sequence:@[[SKAction fadeOutWithDuration:0.1],
+                                                   [SKAction fadeInWithDuration:0.1]]];
+            SKAction *blinkForTime = [SKAction repeatAction:blink count:4];
+            SKAction *shipExplosionSound = [SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO];
+            [ship runAction:[SKAction sequence:@[shipExplosionSound,blinkForTime]]];
+
+            --_lives;
+            
+            NSLog(@"your ship has been hit!");
+            [self UpdateLivesLabel];
+
+        }
+    
     }
-    else
-    {
-        firstBody = contact.bodyB;
-        secondBody = contact.bodyA;
-    }
-    
-    if ((firstBody.categoryBitMask & laserCategory) != 0)
-    {
-        SKNode *projectile = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyA.node : contact.bodyB.node;
-        SKNode *enemy = (contact.bodyA.categoryBitMask & laserCategory) ? contact.bodyB.node : contact.bodyA.node;
-        
-        
-        
-        [self addChild:[self loadExplosionEmitterNode:@"Explosion" atPosition:enemy.position withSize:enemy.frame.size]];
-       
-        SKAction *asteroidExplosionSound = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
-        
-        [projectile runAction:[SKAction removeFromParent]];
-        [enemy runAction:[SKAction sequence:@[asteroidExplosionSound, [SKAction removeFromParent]]]];
-        
-        [self UpdateScore];
-    }
-    
-    //TODO contact with spaceship
-    
-    
-    
     
 }
  
@@ -532,6 +562,7 @@ static const uint8_t enemyCategory = 0x1 << 2;
                              WithSize:15];
     label.position = CGPointMake(self.size.width - label.frame.size.width/2 - 20, self.size.height - (20 + label.frame.size.height/2));
     [self addChild:label];
+    
     
     //    SKLabelNode* bombLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedMedium"];
     //    bombLabel.name = kBombHudName;
